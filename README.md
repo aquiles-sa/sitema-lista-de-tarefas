@@ -19,7 +19,7 @@ Este projeto simples em Java implementa um sistema de cadastro e login via termi
 ## Como executar
 
 1. Clone o repositório:
-git clone https://github.com/aquiles-sa/sitema-lista-de-tarefas.git
+git clone https://github.com/sua-conta/sitema-lista-de-tarefas.git
 
 2. Abra o Eclipse > `File > Import > Existing Projects into Workspace` > Selecione a pasta clonada.
 3. Execute a classe `App.java`
