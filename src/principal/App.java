@@ -11,11 +11,16 @@ public class App {
 		Cadastro cadastro = view.realizarCadastro(scan);
 		boolean login_efetizado = loginView.realizarLogin(scan, cadastro); 
 		
+		Tarefas tarefas = new Tarefas();
+		
 		if (login_efetizado) {
 			System.out.println("Acesso ao sistema permitido!");
+			tarefas.adicionarTarefa(scan);
+			tarefas.mostrarTarefas();
+			
 		} else {
 			System.out.println("Acesso negado.");
 		}
-		
 	}
+
 }
