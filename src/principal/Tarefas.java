@@ -76,6 +76,30 @@ public class Tarefas {
 			System.out.println("Tarefa removida com sucesso!");
 		}
 	}
+	
+	public void limparLista (Scanner sc) {
+		String opcao;
+		
+		do {
+			System.out.print("Você realmente deseja excluir todas as tarefas [S/N]? ");
+			opcao = sc.nextLine().toUpperCase().trim();
+			
+			if (opcao.equals("S")) {
+				tarefas.clear();
+				System.out.println("Lista está vazia!");
+				break;
+			} else if (opcao.equals("N")) {
+				System.out.println("Lista mantida.");
+				break;
+			} else {
+				continue;
+			}
+			
+		} while (opcao != "Y" || opcao != "N");
+		
+		
+		
+	}
 }
 
 
