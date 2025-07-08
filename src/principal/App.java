@@ -1,4 +1,5 @@
 package principal;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -20,42 +21,49 @@ public class App {
 		} else {
 			System.out.println("Acesso negado.");
 		}
-
 	}
 	
 	public static void imprimirMenu(Scanner sc, Cadastro cadastro, Tarefas tarefas) {
-		int opcao = 0;
-		
-		while(opcao != 6) {
-			System.out.println("-------- MENU " + cadastro.getNome() + " --------");
-			System.out.println("1 - Mostrar lista completa.");
-			System.out.println("2 - Adicionar nova tarefa.");
-			System.out.println("3 - Editar tarefa.");
-			System.out.println("4 - Excluir tarefa.");
-			System.out.println("5 - Limpar lista.");
-			System.out.println("6 - Sair. \n");
+		try {
+			int opcao = 0;
 			
-			opcao = sc.nextInt();
-			sc.nextLine();
-			
-			switch (opcao) {
-				case 1: {
-					tarefas.mostrarTarefas();
-					break;
+			while(opcao != 6) {
+				System.out.println("-------- MENU " + cadastro.getNome() + " --------");
+				System.out.println("1 - Mostrar lista completa.");
+				System.out.println("2 - Adicionar nova tarefa.");
+				System.out.println("3 - Editar tarefa.");
+				System.out.println("4 - Excluir tarefa.");
+				System.out.println("5 - Limpar lista.");
+				System.out.println("6 - Sair. \n");
+				
+				opcao = sc.nextInt();
+				sc.nextLine();
+				
+				switch (opcao) {
+					case 1:
+						tarefas.mostrarTarefas();
+						break;
+					case 2:
+						tarefas.adicionarTarefa(sc);
+						break;
+					case 3:
+						tarefas.editarTarefa(sc);
+						break;
+					case 4:
+						tarefas.excluirTarefa(sc);
+						break;
+					case 6:
+						System.out.println("Programa encerrado.");
+						break;
+					default:
+						throw new IllegalArgumentException("Opção inválida: " + opcao);
 				}
-				
-				case 2: 
-					tarefas.adicionarTarefa(sc);
-					break;
-				
-				case 6:
-					System.out.println("Programa encerrado.");
-					break;
-				default:
-					throw new IllegalArgumentException("Opção inválida: " + opcao);
 			}
-			
-		};
+		} catch (InputMismatchException e) {
+			System.out.println("Tipo de entrada inválido.");
+		} catch (Exception e) {
+			System.out.println("Erro: " + e);
+		}
 		
 	}
 }
