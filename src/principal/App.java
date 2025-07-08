@@ -52,6 +52,9 @@ public class App {
 					case 4:
 						tarefas.excluirTarefa(sc);
 						break;
+					case 5:
+						tarefas.limparLista(sc);
+						break;
 					case 6:
 						System.out.println("Programa encerrado.");
 						break;
