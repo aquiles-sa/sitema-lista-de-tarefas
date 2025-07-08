@@ -38,6 +38,7 @@ public class Tarefas {
 		int tarefa_a_ser_editada;
 		String tarefa_atualizada;
 		
+		mostrarTarefas();
 		System.out.print("Digite o índice da tarefa a ser editada: ");
 		tarefa_a_ser_editada = sc.nextInt();
 		sc.nextLine();
@@ -56,6 +57,24 @@ public class Tarefas {
 			System.out.println("Tarefa atualizada com sucesso!");
 		}
 		
+	}
+	
+	public void excluirTarefa (Scanner sc) {
+		int tarefa_a_ser_excluida;
+		
+		mostrarTarefas();
+		System.out.print("Digite o índice da tarefa a ser excluída: ");
+
+		tarefa_a_ser_excluida = sc.nextInt();
+		sc.nextLine();
+		System.out.println();
+		
+		if (tarefa_a_ser_excluida < 0 || tarefa_a_ser_excluida >= tarefas.size()) {
+			System.out.println("Essa tarefa não existe.");
+		} else {
+			tarefas.remove(tarefa_a_ser_excluida);
+			System.out.println("Tarefa removida com sucesso!");
+		}
 	}
 }
 
